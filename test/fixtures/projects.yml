@@ -1,17 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  slug: MyString
-  description: MyText
-  content: MyText
-  priority: 
+  title: My Wonderful Project
+  slug: my-wonderful-project
+  description: This is the description of my wonderful project
+  content: "See, this project is all my life. I won't be anything without that project which made me grow up."
+  priority: primary
   position: 1
-
-two:
-  title: MyString
-  slug: MyString
-  description: MyText
-  content: MyText
-  priority: 
-  position: 1
+  published: true
