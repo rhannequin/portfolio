@@ -1,0 +1,42 @@
+one:
+  label: "HTML / CSS"
+two:
+  label: JavaScript
+three:
+  label: Symfony
+four:
+  label: SQL
+five:
+  label: PHP
+six:
+  label: Sessions
+seven:
+  label: Design
+eight:
+  label: InDesign
+none:
+  label: Communication
+ten:
+  label: Mise en page
+eleven:
+  label: Webdesign
+twelve:
+  label: Photoshop
+thirteen:
+  label: Vidéo
+fourteen:
+  label: Stop Motion
+fifteen:
+  label: MVC
+sixteen:
+  label: Tests fonctionnels
+seventeen:
+  label: API Deezer
+eighteen:
+  label: API Dailymotion
+nineteen:
+  label: API YouTube
+twenty:
+  label: Backbone.js
+twentyone:
+  label: CoffeeScript

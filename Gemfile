@@ -11,7 +11,9 @@ group :development, :test do
   gem 'sqlite3'
   gem "better_errors", ">= 0.3.2"
 end
-gem 'enumerated_attribute'
+
+# Enumerated attributes gem from Github repo
+gem 'enumerated_attribute', :git => 'git://github.com/jeffp/enumerated_attribute.git'
 
 
 # Gems used only for assets and not required
