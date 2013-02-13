@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   title: My Wonderful Project
   slug: my-wonderful-project
@@ -7,4 +5,12 @@ one:
   content: "See, this project is all my life. I won't be anything without that project which made me grow up."
   priority: primary
   position: 1
+  published: true
+two:
+  title: My second awesome project
+  slug: my-second-awesome-project
+  description: "I can't make you wait, lokk at the awesome content!"
+  content: "You know what, this project is the second best I have ever made."
+  priority: primary
+  position: 2
   published: true

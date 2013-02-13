@@ -1,8 +1,7 @@
 Portfolio::Application.routes.draw do
 
+  root :to => 'projects#index'
   resources :tags
-
-
   resources :projects
 
   # The priority is based upon order of creation:
