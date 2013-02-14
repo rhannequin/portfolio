@@ -6,6 +6,9 @@
 <p>Priority : <%= @project.priority %></p>
 <p>Position : <%= @project.position %></p>
 <p>Published : <%= @project.published %></p>
+<p>Tags : <% @project.tags.each do |tag| %>
+  <%= tag.label %> |
+<% end %></p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
