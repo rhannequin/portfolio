@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if not flash.empty? %>
+  <% flash.each do |name, msg| %><%# key == {:info|:notice, :success, :warning|:alert, :error} %>
+    <%= content_tag :div, :class => "alert alert-#{name}" do %>
+      <a class="close" data-dismiss="alert">&times;</a>
+      <%= msg %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <%= yield %>
 
 </body>

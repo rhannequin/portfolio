@@ -1,16 +1,22 @@
 class ApplicationController < ActionController::Base
+  before_filter :current_user
   protect_from_forgery
 
   private
-  def current_user
-    return @current_user if @current_user
-    @current_user = User.new
-  end
-
-  def only_admin_user
-    if not current_user.is_admin?
-      flash[:error] = 'Only an administrator can access %{controller}!' % {:controller => params[:controller].to_s.capitalize}
-      redirect_to root_path
+    def current_user=(usr)
+      session[:user] = usr
     end
-  end
+
+    def current_user
+      return @current_user if @current_user
+      return @current_user = session[:user] unless session[:user].nil?
+      @current_user = session[:user] = nil
+    end
+    helper_method :current_user
+
+    def only_admin_user
+      if current_user.nil? or !current_user.is_admin?
+        redirect_to root_path, flash: { error: 'Only administrators can access this page.' }
+      end
+    end
 end
