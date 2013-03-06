@@ -1,0 +1,15 @@
+<h1>Login admin</h1>
+
+<form action="<%= admin_authenticate_path %>" method="post">
+  <p>
+    <label for="user_login">Login:</label>
+    <input type="text" id="user_login" name="user[login]" placeholder="User login" />
+  </p>
+  <p>
+    <label for="user_password">Password:</label>
+    <input type="password" id="user_password" name="user[password]" />
+  </p>
+  <p>
+    <input type="submit" />
+  </p>
+</form>
