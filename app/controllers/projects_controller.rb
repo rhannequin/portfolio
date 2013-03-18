@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = Project.order('position').all
   end
 
   def show
@@ -10,12 +10,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @projectsCount = Project.all.size + 1
+    @project.position = @projectsCount
   end
 
   def create
     project = Project.new(params[:project])
-    if @project.save
-      redirect_to @project,  flash: {success: _('Project was successfully created')}
+    if project.save
+      redirect_to project,  flash: {success: 'Project was successfully created'}
     else
       render action: :new
     end
@@ -23,12 +25,13 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @projectsCount = Project.all.size
   end
 
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
-      redirect_to @project,  flash: {success: _('Project was successfully updated')}
+      redirect_to @project,  flash: {success: 'Project was successfully updated'}
     else
       render action: :edit
     end

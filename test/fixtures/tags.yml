@@ -1,0 +1,42 @@
+tag_one:
+  label: "HTML / CSS"
+tag_two:
+  label: JavaScript
+tag_three:
+  label: Symfony
+tag_four:
+  label: SQL
+tag_five:
+  label: PHP
+tag_six:
+  label: Sessions
+tag_seven:
+  label: Design
+tag_eight:
+  label: InDesign
+tag_none:
+  label: Communication
+tag_ten:
+  label: Mise en page
+tag_eleven:
+  label: Webdesign
+tag_twelve:
+  label: Photoshop
+tag_thirteen:
+  label: Vidéo
+tag_fourteen:
+  label: Stop Motion
+tag_fifteen:
+  label: MVC
+tag_sixteen:
+  label: Tests fonctionnels
+tag_seventeen:
+  label: API Deezer
+tag_eighteen:
+  label: API Dailymotion
+tag_nineteen:
+  label: API YouTube
+tag_twenty:
+  label: Backbone.js
+tag_twentyone:
+  label: CoffeeScript

@@ -1,0 +1,48 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label      :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= f.label     :description %><br />
+    <%= f.text_area :description, :size => "50x6" %>
+  </div>
+  <div class="field">
+    <%= f.label     :content %><br />
+    <%= f.text_area :content, :size => "70x12" %>
+  </div>
+  <div class="field">
+    <%= f.label   :position %><br />
+    <%= f.select  :position,
+                  (1..@projectsCount).collect { |i| i.to_s },
+                  :selected => @project.position.to_s,
+                  :include_blank => 'Sélectionner une position' %>
+  </div>
+  <div class="field">
+    <%= f.label       :priority %><br />
+    <%= f.enum_select :priority %>
+  </div>
+  <div class="control-group">
+    <%= f.label     :published %>
+    <%= f.check_box :published %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
