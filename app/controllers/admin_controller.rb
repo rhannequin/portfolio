@@ -6,6 +6,7 @@ class AdminController < ApplicationController
 
   def login
     redirect_to admin_path if !current_user.nil? and current_user.is_admin?
+    render :layout => false
   end
 
   def authenticate
