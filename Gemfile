@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'thin'
 
+# Database
 group :production do
   gem 'pg'
 end
@@ -10,6 +11,7 @@ group :development, :test do
   gem 'sqlite3'
   gem "better_errors", ">= 0.3.2"
 end
+gem 'enumerated_attribute'
 
 
 # Gems used only for assets and not required
