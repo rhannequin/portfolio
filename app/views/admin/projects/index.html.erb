@@ -1,1 +1,29 @@
-<h1>Admin projects</h1>
+<h1>Projects</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Slug</th>
+    <th>Créé le</th>
+    <th>Date d'édition</th>
+    <th>Actions</th>
+  </tr>
+  <% @projects.each do |project| %>
+  <tr>
+    <td><%= project.id %></td>
+    <td><%= project.title %></td>
+    <td><%= link_to project.slug, project %></td>
+    <td><%= l project.created_at, format: :short %></td>
+    <td><%= l project.updated_at, format: :short %></td>
+    <td>
+      <div class="btn-group">
+        <a href="<%= edit_admin_project_path(project) %>"><button class="btn"><i class="icon-edit"></i></button></a>
+        <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <button class="btn"><i class="icon-remove"></i></button>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+  <% end %>
+</table>
