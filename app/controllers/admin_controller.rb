@@ -14,7 +14,7 @@ class AdminController < ApplicationController
     user = params[:user]
     if user[:login] === ENV['ADMIN_LOGIN'] and user[:password] === ENV['ADMIN_PASSWORD']
       self.current_user = User.first
-      redirect_to admin_path, flash: { success: 'Welcome, %{firstname} %{lastname}!' %
+      redirect_to admin_path, flash: { success: 'Hey, %{firstname} %{lastname}!' %
         { :firstname => current_user.firstname,
           :lastname  => current_user.lastname } }
     else

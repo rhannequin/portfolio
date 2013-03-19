@@ -1,0 +1,68 @@
+<%= form_for [:admin, @project], :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="control-group">
+    <%= f.label :title, 'Titre', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :slug, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :slug, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :content, 'Contenu', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :rows => 15, :class => 'field span9' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select  :position,
+                  (1..@projectsCount).collect { |i| i.to_s },
+                  :selected => @project.position.to_s,
+                  :include_blank => 'Sélectionner une position' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :priority, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.enum_select :priority %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :published, :class => 'control-label checkbox inline' %>
+    <%= f.check_box :published %>
+  </div>
+
+  <div class="control-group">
+    <%= f.submit :class => 'btn btn-primary' %>
+  </div>
+
+<% end %>
