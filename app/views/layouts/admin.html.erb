@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <%= stylesheet_link_tag "application", "bootstrap.min", "admin", :media => "all" %>
+    <%= javascript_include_tag 'jquery', 'jquery-ujs', "bootstrap.min" %>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -53,8 +54,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Projects</li>
-              <li class="active"><a href="#">Liste</a></li>
-              <li><a href="#">Nouveau</a></li>
+              <li class="active"><a href="<%= admin_projects_path %>">Liste</a></li>
+              <li><a href="<%= new_admin_project_path %>">Nouveau</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
