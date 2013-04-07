@@ -1,6 +1,6 @@
 Portfolio::Application.routes.draw do
 
-  root :to => 'projects#index'
+  root :to => 'portfolio#index'
 
   # Portfolio
   match 'portfolio',        :to => 'portfolio#index',    :as => :portfolio
