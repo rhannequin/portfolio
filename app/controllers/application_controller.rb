@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_filter :current_user
+  before_filter :current_user, :prepend
   protect_from_forgery
 
   private
+    def prepend
+      @title = 'lol'
+      @description_page = ''
+      @keywords = ''
+    end
+
     def current_user=(usr)
       session[:user] = usr
     end

@@ -1,0 +1,234 @@
+.profile {
+
+  .main {
+    a:link {
+      text-decoration: underline;
+    }
+    strong {
+      font-weight: normal;
+    }
+    ul {
+      list-style-type: circle;
+    }
+    h1, h3, h4, h5 {
+      color: #38A8BE;
+    }
+    h1 {
+      font-weight: normal;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 23px;
+      margin: 40px 0 20px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    h4, h5 {
+      margin: 9px 0;
+      font-weight: normal;
+    }
+    .competences {
+      margin-bottom: 20px;
+    }
+    .competences h4, .competences h5 {
+      text-align: center;
+    }
+    .cv ul, .nav ul, .skills ul {
+      margin: 0;
+    }
+    .cv li, .nav li, .skills li {
+      list-style-type: none;
+    }
+  }
+
+  .skills li {
+    text-align: center;
+  }
+
+  .cv {
+    text-align: right;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .languages li {
+    list-style-type: none;
+
+    .language {
+      text-align: right;
+      padding-right: 35px;
+    }
+  }
+
+  .wp {
+    text-align: center;
+  }
+
+  .env h4 {
+    text-align: left;
+  }
+
+  .experiences {
+    margin-bottom: 10px;
+
+    .exp_date {
+      color: #555555;
+      font-size: 12px;
+    }
+    h4 {
+      margin: 0;
+    }
+    ul {
+      margin-top: 5px;
+      margin-left: 0;
+    }
+  }
+
+  #developper {
+    color: #adc354;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  #more_master {
+    display: none;
+  }
+
+  /* Large desktop */
+  @media (min-width: 1200px) {  }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {  }
+
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {
+
+    .languages .span6, .head .span6 { width: 48.6188%; float: left; }
+    .experiences ul { margin: 0 0 10px 25px; }
+
+  }
+
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+
+    .languages .span6, .head .span6 { width: 100%; float: none; }
+    .languages .language { text-align: left; }
+    .languages .row { margin-bottom: 10px; }
+    .cv { text-align: left; }
+
+  }
+
+}
+
+.home {
+
+  .main {
+    h1 {
+      text-align: center;
+      margin: 20px 0px;
+      color: #38A8BE;
+    }
+    h2 {
+      font-size: 25px;
+    }
+    h3 {
+      color: #38A8BE;
+    }
+    h1, h2, h3 {
+      font-weight: normal;
+    }
+    .span7 {
+      padding-right: 10px;
+    }
+    .span5 {
+      > .span {
+        margin-left: 2.12766%;
+      }
+      ul {
+        margin-left: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+
+
+  /* Presentation */
+
+  .presentation { margin-top: 18px; text-align: justify; }
+
+
+  /* Follow */
+
+  .follow { margin-bottom: 15px; }
+  .follow h1 { margin-top: 15px; }
+  .follow ul { margin-left: 0; }
+  .follow ul li { display: inline-block; width: 15.7%; text-align: center; }
+
+  /* Tweets */
+
+  .tweets h3 { font-size: 17px; text-align: center; margin-top: 0; }
+  .tweets .row-fluid { width: 90%; margin-bottom: 10px; }
+  .tweets .row-fluid .span2 { width: 12%; color: #7F7F7F; font-size: 12px; }
+
+
+  /* Experiences */
+
+  .dates li.date { color: #38A8BE; font-size: 14px; }
+
+
+  /* Skills */
+
+  .dev { margin-left: 2.12766%; }
+  .dev > .span6 { margin-left: 0; }
+ .main .span5 .span6 ul ul { margin-left: 10px; } /* to override margin: 0 */
+  .span5 > p { text-align: right; }
+
+
+  /* Works */
+
+  .works {
+    text-align: center;
+
+    .choice {
+      cursor: pointer;
+    }
+  }
+
+
+
+  /* Large desktop */
+  @media (min-width: 1200px) {  }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+
+    .dev > .span6 { width: 100%; }
+    .dev > .span6 ul ul { margin: 0; }
+    .dev > .span6 ul ul li { display: inline-block; padding: 0px 10px; }
+    .tweets h3 { margin: 0; }
+    .tweets .row-fluid { width: 100%; margin: 0; }
+
+  }
+
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {
+
+    .tweets h3 { margin: 0; }
+    .tweets .row-fluid { width: 100%; margin: 0; }
+    .tweets .row-fluid .span2 { float: left; }
+
+  }
+
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+    .follow ul li { display: inline-block; width: 15.2%; text-align: center; }
+    .tweets { float: none; min-height: 20px; }
+  }
+
+}
