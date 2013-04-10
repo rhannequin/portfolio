@@ -14,4 +14,10 @@ class PagesController < ApplicationController
     @keywords = 'profil, formation, compétences, expériences, personnel'
   end
 
+  def curriculum_vitae
+    @title = 'Curriculum vitae'
+    @description_page = 'Mon curriculum vitae au format html.'
+    @keywords = 'curriculum, vitae, cv, formation, expériences, loisirs, personnel'
+  end
+
 end

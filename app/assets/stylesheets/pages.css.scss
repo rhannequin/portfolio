@@ -232,3 +232,23 @@
   }
 
 }
+
+.curriculum_vitae {
+
+  .main {
+    h1, h3, h4, h5 {
+      color: #38A8BE;
+    }
+    h1 {
+      font-weight: normal;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+
+  .exp_date {
+    color: #555555;
+    font-size: 12px;
+  }
+
+}

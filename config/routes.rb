@@ -1,6 +1,6 @@
 Portfolio::Application.routes.draw do
 
-  root :to => 'portfolio#index'
+  root :to => 'pages#home'
 
   # Portfolio
   match 'portfolio',        :to => 'portfolio#index',    :as => :portfolio
@@ -22,5 +22,6 @@ Portfolio::Application.routes.draw do
     resources :projects
   end
 
+  match '/curriculum-vitae', :to => 'pages#curriculum_vitae'
   match '/:action', :controller => 'pages'
 end

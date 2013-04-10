@@ -20,8 +20,8 @@
       <span id="gravatar" class="visible-desktop"><a href="/"></a></span>
       <ul class="nav nav-pills pull-right">
         <li class="<%= 'active' if action_name     == 'home' %>"><a href="/">Accueil</a></li>
-        <li class="<%= 'active' if action_name     == 'profile' %>"><a href="profil">Profil</a></li>
-        <li class="<%= 'active' if controller_name == 'portfolio' %>"><a href="portfolio">Portfolio</a></li>
+        <li class="<%= 'active' if action_name     == 'profile' %>"><a href="/profile">Profil</a></li>
+        <li class="<%= 'active' if controller_name == 'portfolio' %>"><a href="/portfolio">Portfolio</a></li>
         <li class="<%= 'active' if action_name     == 'contact' %>"><a href="/contact">Contact</a></li>
         <!-- TODO: check URLs -->
       </ul>
@@ -33,8 +33,14 @@
   <div id="css_green"></div>
 
   <div class="container <%= action_name %>">
-      <p id="fil_ariane">Vous êtes :</p>
-      <!-- TODO: fil d'ariane -->
+      <p id="fil_ariane">
+        Vous êtes :
+        <% if controller_name == 'portfolio' %>
+          <%= fil_ariane(action_name, @title, true) %>
+        <% else %>
+          <%= fil_ariane(action_name, @title, false) %>
+        <% end %>
+      </p>
 
       <div class="main">
         <%= yield %>
@@ -48,13 +54,13 @@
           <h3>Profil</h3>
           <hr />
           <ul>
-            <li><a href="/profil#formation">Formation</a></li>
+            <li><a href="/profile#formation">Formation</a></li>
             <hr />
-            <li><a href="/profil#experiences">Expériences</a></li>
+            <li><a href="/profile#experiences">Expériences</a></li>
             <hr />
-            <li><a href="/profil#competences">Compétences</a></li>
+            <li><a href="/profile#competences">Compétences</a></li>
             <hr />
-            <li><a href="/profil#personnel">Personnel</a></li>
+            <li><a href="/profile#personnel">Personnel</a></li>
             <hr />
             <li><a href="/CV_Remy_Hannequin.pdf">CV (PDF)</a> / <a href="/curriculum-vitae">CV (HTML)</a></li>
             <!-- TODO: check URL -->
