@@ -1,4 +1,4 @@
-<%= form_for [:admin, @project], :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [:admin, @project], :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,6 +10,15 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="control-group">
+    <%= f.label :assets, 'Image', :class => 'control-label' %>
+    <div class="controls">
+      <%#= image_tag @project.assets.url %>
+      <%#= image_tag @project.assets.url(:medium) %>
+      <%#= image_tag @project.assets.url(:thumb) %>
+    </div>
+  </div>
 
    <div class="control-group">
     <%= f.label :title, 'Titre', :class => 'control-label' %>
