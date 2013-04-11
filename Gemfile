@@ -30,3 +30,4 @@ end
 
 gem 'jquery-rails'
 gem "figaro"
+gem "paperclip", "~> 3.0"
