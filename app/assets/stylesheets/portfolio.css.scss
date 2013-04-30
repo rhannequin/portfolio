@@ -1,0 +1,51 @@
+.index {
+  h1, h2, h3 {
+    font-weight: normal;
+  }
+
+  h1, h2 {
+    color: #38a8be;
+    text-align: center;
+  }
+
+  .primary h2 {
+    text-align: left;
+    margin: 30px 0px 0px 0px;
+  }
+
+  .primary .project {
+    margin: 15px 0;
+  }
+  .secondary .project {
+    margin: 5px 0;
+  }
+
+  .primary .span6, .secondary .span4 {
+    padding: 0 10px;
+  }
+
+  .project h3, .project div.img_work, .project .tags {
+    text-align: center;
+  }
+
+  .project .tags {
+    margin: 10px 0;
+  }
+
+  .project h3 {
+    margin: 0px 0px 10px 0px;
+  }
+
+  .project .more {
+    text-align: right;
+  }
+
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) {
+
+    .primary .span6, .secondary .span4 {
+      padding: 0;
+    }
+
+  }
+}

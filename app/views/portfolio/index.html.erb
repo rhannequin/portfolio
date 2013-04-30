@@ -1,7 +1,79 @@
-<h1>Projects</h1>
+<h1>Portfolio</h1>
 
-<ul>
-<% @projects.each do |project| %>
-  <li><%= link_to(project.title, show_portfolio_path(project.id)) %></li>
-<% end %>
-</ul>
+<h2>Créations et travaux effectués</h2>
+
+<div class="primary">
+
+  <h2>Mes principaux travaux</h2>
+
+  <% @projects_primary.each_with_index do |project, index| %>
+
+    <% if index%2 == 0 %>
+    <div class="row-fluid project">
+    <% end %>
+
+      <div class="span6">
+        <h3><%= project.title %></h3>
+        <div class="img_work">
+          <% if project.uploads.size > 0 %>
+            <%= link_to image_tag(project.uploads.first.upload.url(:medium)), show_portfolio_path(project.id) %>
+          <% end %>
+          <!-- <img src="<?php echo URL_CREATIONS . '/screen_' . $imagesCreation[$creation['id_creation']]['src'] ?>" alt="" title="" id="work_img_<?php echo $i; ?>" class="work_img" /> -->
+        </div>
+        <div class="tags">
+        <% project.tags.each do |tag| %>
+          <span class="label label-inverse"><%= tag.label %></span>
+        <% end %>
+        </div>
+        <p class="description"><%= project.description %></p>
+        <p class="more">
+          <%= link_to('En savoir +', show_portfolio_path(project.id)) %>
+        </p>
+      </div>
+
+    <% if index%2 != 0 or index == @projects_primary.size - 1 %>
+    </div>
+    <% end %>
+
+  <% end %>
+
+</div>
+
+
+
+<div class="secondary">
+
+  <h2>J'ai également réalisé</h2>
+
+  <% @projects_secondary.each_with_index do |project, index| %>
+
+    <% if index%3 == 0 %>
+    <div class="row-fluid project">
+    <% end %>
+
+      <div class="span4">
+        <h3><%= project.title %></h3>
+        <div class="img_work">
+          <% if project.uploads.size > 0 %>
+            <%= link_to image_tag(project.uploads.first.upload.url(:thumb)), show_portfolio_path(project.id) %>
+          <% end %>
+          <!-- <img src="<?php echo URL_CREATIONS . '/screen_' . $imagesCreation[$creation['id_creation']]['src'] ?>" alt="" title="" id="work_img_<?php echo $i; ?>" class="work_img" /> -->
+        </div>
+        <div class="tags">
+        <% project.tags.each do |tag| %>
+          <span class="label label-inverse"><%= tag.label %></span>
+        <% end %>
+        </div>
+        <p class="description"><%= project.description %></p>
+        <p class="more">
+          <%= link_to('En savoir +', show_portfolio_path(project.id)) %>
+        </p>
+      </div>
+
+    <% if (index != 0 and index%3 != 2) or index == @projects_secondary.size - 1 %>
+    </div>
+    <% end %>
+
+  <% end %>
+
+</div>
