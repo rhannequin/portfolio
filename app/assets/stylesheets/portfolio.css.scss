@@ -49,3 +49,79 @@
 
   }
 }
+
+.show {
+
+  h1, h2, h3 {
+    color: #38a8be;
+    font-weight: normal;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  h3 a:link, h3 a:visited {
+    text-decoration: underline;
+  }
+
+
+  .tags-label {
+    font-style: italic;
+  }
+
+  .description {
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  .images {
+    text-align: center;
+    float: right;
+    margin: 0;
+  }
+
+  .images img {
+    border: none;
+    margin: 15px;
+  }
+
+  .images p {
+    margin: 0;
+  }
+
+  .creation-content {
+    margin-top: 30px;
+  }
+
+  .similar-title {
+    margin-top: 40px;
+  }
+
+  .similar {
+    text-align: center;
+  }
+
+  .modal { max-height: 90%; overflow: auto; }
+
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+    .row-fluid .span8{ width: 60%; }
+    .row-fluid .span4{ width: 37%; }
+    .modal{ width: 760px; margin-left: -380px; }
+  }
+
+  @media (min-width: 1200px) {
+    .modal{ width: 960px; margin-left: -480px; }
+  }
+
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+    .modal{
+      width: 95%; margin-right: 10px;
+
+      img { width: 90%; max-height: 90%; }
+    }
+  }
+}

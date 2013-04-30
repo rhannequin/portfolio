@@ -1,13 +1,92 @@
-<h1><%= @project.title %></h1>
+<div class="row-fluid">
+  <div class="span8">
+    <h1><%= @project.title %></h1>
+    <p class="tags-label">Tags associés :</p>
+    <p>
+      <% @project.tags.each do |tag| %>
+        <span class="label label-inverse"><%= tag.label %></span>
+      <% end %>
+    </p>
+    <p class="description">
+      <%= @project.description %>
+    </p>
+  </div>
 
-<p>Slug : <%= @project.slug %></p>
-<p>Description : <%= @project.title %></p>
-<p>Content : <%= @project.content %></p>
-<p>Priority : <%= @project.priority %></p>
-<p>Position : <%= @project.position %></p>
-<p>Published : <%= @project.published %></p>
-<p>Tags : <% @project.tags.each do |tag| %>
-  <%= tag.label %> |
-<% end %></p>
+  <div class="span4 images">
+    <% if @project.uploads.size > 0 %>
+      <% @project.uploads.each_with_index do |upload, index| %>
+        <!-- Modal large upload -->
+        <div id="img_<%= index %>" class="modal hide fade in" style="display: none; ">
+          <a class="close" data-dismiss="modal">×</a>
+          <%= image_tag(upload.upload.url(:large)) %>
+        </div>
+        <a class="link_img" data-toggle="modal" href="#img_<%= index %>" id="img_<%= index %>">
+          <img src="<%= upload.upload.url(:medium) %>" alt="Illustration du projet <%= @project.title %>" />
+        </a>
+      <% end %>
+      <p class="nav">
+        <a href="#" class="prev"><i class="icon-arrow-left"></i></a>
+        <a href="#" class="next"><i class="icon-arrow-right"></i></a>
+      </p>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'Back', portfolio_path %>
+<div class="row-fluid creation-content">
+  <div class="span">
+    <%= @project.content %>
+  </div>
+</div>
+
+<h2 class="similar-title">Ces projets pourraient également vous intéresser :</h2>
+<div class="row-fluid similar">
+  TODO: similar projects
+  <!-- <div class="span6">
+    <h3>
+      <a href="">
+      </a>
+    </h3>
+    <p></p>
+  </div> -->
+</div>
+
+<!-- TODO: better javascript architecture -->
+<%= javascript_include_tag "jquery", "bootstrap.min" %>
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    var displayImg = function (id) {
+      var prev, next, nb_img = $('.images .link_img').length;
+      id = parseFloat(id, 10);
+
+      $('.images .link_img').hide();
+      $('.images a#img_' + id).show();
+
+      if (id + 1 === nb_img) {
+        prev = 'link_' + (id - 1);
+        next = 'link_0';
+      } else if (id - 1 === -1) {
+        prev = 'link_' + (nb_img - 1);
+        next = 'link_' + (id + 1);
+      } else {
+        prev = 'link_' + (id - 1);
+        next = 'link_' + (id + 1);
+      }
+
+      $('.images .nav .prev').attr('id', prev);
+      $('.images .nav .next').attr('id', next);
+    };
+
+    if ($('.images .link_img').length <= 1) {
+      $('.images .nav').hide();
+    }
+
+    displayImg(0);
+
+    $('.images .nav a').live('click', function (e) {
+      e.preventDefault();
+      displayImg($(this).attr('id').substring(5, 6));
+    });
+
+  });
+</script>
