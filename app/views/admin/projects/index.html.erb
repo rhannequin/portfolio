@@ -13,7 +13,7 @@
   <tr>
     <td><%= project.id %></td>
     <td><%= project.title %></td>
-    <td><%= link_to project.slug, project %></td>
+    <td><%= link_to project.slug, show_portfolio_path(project.slug) %></td>
     <td><%= l project.created_at, format: :short %></td>
     <td><%= l project.updated_at, format: :short %></td>
     <td>

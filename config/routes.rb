@@ -3,10 +3,9 @@ Portfolio::Application.routes.draw do
   root :to => 'pages#home'
 
   # Portfolio
-  match 'portfolio',        :to => 'portfolio#index',    :as => :portfolio
-  match 'portfolio/:id',    :to => 'portfolio#show',     :as => :show_portfolio
+  match 'portfolio',        :to => 'portfolio#index',  :as => :portfolio
+  match 'portfolio/:slug',  :to => 'portfolio#show',   :as => :show_portfolio
 
-  resources :tags
   resources :projects
 
   match     :admin,                :to => 'admin#index'

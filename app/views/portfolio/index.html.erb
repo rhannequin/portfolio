@@ -16,7 +16,7 @@
         <h3><%= project.title %></h3>
         <div class="img_work">
           <% if project.uploads.size > 0 %>
-            <%= link_to image_tag(project.uploads.first.upload.url(:medium)), show_portfolio_path(project.id) %>
+            <%= link_to image_tag(project.uploads.first.upload.url(:medium)), show_portfolio_path(project.slug) %>
           <% end %>
         </div>
         <div class="tags">
@@ -26,7 +26,7 @@
         </div>
         <p class="description"><%= project.description %></p>
         <p class="more">
-          <%= link_to('En savoir +', show_portfolio_path(project.id)) %>
+          <%= link_to('En savoir +', show_portfolio_path(project.slug)) %>
         </p>
       </div>
 
@@ -64,7 +64,7 @@
         </div>
         <p class="description"><%= project.description %></p>
         <p class="more">
-          <%= link_to('En savoir +', show_portfolio_path(project.id)) %>
+          <%= link_to('En savoir +', show_portfolio_path(project.slug)) %>
         </p>
       </div>
 

@@ -43,7 +43,7 @@
   <% @similars.each do |project| %>
   <div class="span6">
     <h3>
-      <%= link_to(project.title, show_portfolio_path(project.id)) %>
+      <%= link_to(project.title, show_portfolio_path(project.slug)) %>
     </h3>
     <p><%= project.description %></p>
   </div>
