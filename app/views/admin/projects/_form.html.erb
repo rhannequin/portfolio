@@ -12,11 +12,28 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :assets, 'Image', :class => 'control-label' %>
+    <%= f.label :uploads, 'Images', :class => 'control-label' %>
     <div class="controls">
-      <%#= image_tag @project.assets.url %>
-      <%#= image_tag @project.assets.url(:medium) %>
-      <%#= image_tag @project.assets.url(:thumb) %>
+      <%= f.fields_for :uploads do |upload_fields| %>
+        <% if upload_fields.object.new_record? %>
+          <p>
+            <%= upload_fields.file_field :upload %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.fields_for :uploads do |asset| %>
+        <% unless asset.object.new_record? %>
+          <p>
+            <%= asset.check_box :_destroy %>
+            <%= link_to image_tag(asset.object.upload.url(:thumb)), asset.object.upload.url(:original) %>
+          </p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
