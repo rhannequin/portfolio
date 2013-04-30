@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130221090544) do
+ActiveRecord::Schema.define(:version => 20130411085457) do
 
   create_table "projects", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(:version => 20130221090544) do
     t.string   "label"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["label"], :name => "index_tags_on_label"
+
+  create_table "uploads", :force => true do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.integer  "project_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|

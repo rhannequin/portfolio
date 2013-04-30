@@ -8,6 +8,7 @@ class Admin::ProjectsController < AdminController
     @project = Project.new
     @projectsCount = Project.all.size + 1
     @project.position = @projectsCount
+    2.times { @project.uploads.build }
   end
 
   def create
@@ -22,6 +23,7 @@ class Admin::ProjectsController < AdminController
   def edit
     @project = Project.find(params[:id])
     @projectsCount = Project.all.size
+    2.times { @project.uploads.build }
   end
 
   def update

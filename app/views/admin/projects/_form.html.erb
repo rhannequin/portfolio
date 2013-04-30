@@ -1,4 +1,4 @@
-<%= form_for [:admin, @project], :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [:admin, @project], :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,6 +10,32 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="control-group">
+    <%= f.label :uploads, 'Images', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.fields_for :uploads do |upload_fields| %>
+        <% if upload_fields.object.new_record? %>
+          <p>
+            <%= upload_fields.file_field :upload %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.fields_for :uploads do |asset| %>
+        <% unless asset.object.new_record? %>
+          <p>
+            <%= asset.check_box :_destroy %>
+            <%= link_to image_tag(asset.object.upload.url(:thumb)), asset.object.upload.url(:original) %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
    <div class="control-group">
     <%= f.label :title, 'Titre', :class => 'control-label' %>
@@ -40,6 +66,17 @@
   </div>
 
   <div class="control-group">
+    <%= f.label :tag_ids, 'Tags', :class => 'control-label' %>
+    <div class="controls">
+      <% for tag in Tag.all %>
+        <%= check_box_tag "project[tag_ids][]", tag.id, @project.tags.include?(tag), :id => "project_tag_ids_#{tag.id}" %>
+        <%= tag.label %>
+        <br />
+      <% end %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :position, :class => 'control-label' %>
     <div class="controls">
       <%= f.select  :position,
@@ -50,14 +87,14 @@
   </div>
 
   <div class="control-group">
-    <%= f.label :priority, :class => 'control-label' %>
+    <%= f.label :priority, 'Priorité', :class => 'control-label' %>
     <div class="controls">
       <%= f.enum_select :priority %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :published, :class => 'control-label checkbox inline' %>
+    <%= f.label :published, 'Publié', :class => 'control-label checkbox inline' %>
     <%= f.check_box :published %>
   </div>
 

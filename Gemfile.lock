@@ -40,6 +40,10 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -70,6 +74,12 @@ GEM
     meta_programming (0.2.2)
     mime-types (1.22)
     multi_json (1.7.2)
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.15.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -131,6 +141,7 @@ DEPENDENCIES
   enumerated_attribute!
   figaro
   jquery-rails
+  paperclip (~> 3.0)
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
