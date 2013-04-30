@@ -10,6 +10,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem "better_errors", ">= 0.3.2"
+  gem 'quiet_assets'
 end
 
 # Enumerated attributes gem from Github repo

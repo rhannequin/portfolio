@@ -40,14 +40,14 @@
 
 <h2 class="similar-title">Ces projets pourraient également vous intéresser :</h2>
 <div class="row-fluid similar">
-  TODO: similar projects
-  <!-- <div class="span6">
+  <% @similars.each do |project| %>
+  <div class="span6">
     <h3>
-      <a href="">
-      </a>
+      <%= link_to(project.title, show_portfolio_path(project.id)) %>
     </h3>
-    <p></p>
-  </div> -->
+    <p><%= project.description %></p>
+  </div>
+  <% end %>
 </div>
 
 <!-- TODO: better javascript architecture -->

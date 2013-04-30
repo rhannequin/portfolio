@@ -12,7 +12,7 @@ class PortfolioController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    # TODO: similar projects
+    @similars = Project.related(@project, @project.tags)
     @title = @project.title
   end
 

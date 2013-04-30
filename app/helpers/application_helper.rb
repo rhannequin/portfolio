@@ -1,9 +1,6 @@
 module ApplicationHelper
 
   def fil_ariane(page, title, is_portfolio = false)
-    puts page
-    puts title
-    puts is_portfolio
     fil = '<a href="/">Accueil</a>'
     if page != 'home'
       fil += is_portfolio ? ' - <a href="/portfolio">Portfolio</a>' + (title.empty? ? '' : ' - ') : ' - '
