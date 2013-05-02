@@ -1,131 +1,131 @@
-<h1>A propos</h1>
+<h1><%= t '.title' %></h1>
 
 <div class="row-fluid">
   <div class="span7">
     <div class="span presentation">
       <p>
-        Je suis actuellement apprenti en première année de Master of Science spécialisation Ingénierie du Web et e-business à l'<a href="http://www.esgi.fr"><abbr title="École Supérieure de Génie Informatique">ESGI</abbr></a>.
+        <%= raw t('.presentation.esgi.intro') %>
       </p>
       <p>
-        Cette formation apporte les outils techniques et communicationnels nécessaires à la <strong>création et gestion de projet Web</strong>. Elle permet d'acquérir des compétences d'expertise dans trois grands secteurs : technologies innovantes et d'intégration de l'Internet, conduite de projets et e-Commerce et gestion de l'activité de site (stratégie marketing, communication, suivi de trafic, référencement,  ergonomie de navigation).
+        <%= raw t('.presentation.esgi.presentation') %>
       </p>
       <p>
-        J'effectue mon alternance en tant que <strong>coordinateur de domaine - MOE informatique</strong> à la <abbr title="Régie Autonome des Transports Parisiens">RATP</abbr>, au département des Systèmes d'Information et de Télécommunications.
+        <%= raw t('.presentation.ratp') %>
       </p>
       <p>
-        Ce site vous permettra de voir l'ensemble de <strong><a href="portfolio">mes travaux</a></strong>. Mon <a href="/data/CV_Remy_Hannequin.pdf"><abbr title="Curriculum Vitae">CV</abbr> (<abbr title="Portable Document Format">PDF</abbr>)</a> et de plus amples informations me concernant sont disponibles sur <strong><a href="profil">mon profil</a></strong>. Vous pouvez également <strong><a href="contact">me contacter</a></strong> pour toute information complémentaire.
+        <%= raw t('.presentation.resources') %>
       </p>
       <p>
-        Je vous souhaite une agréable visite.
+        <%= raw t('.presentation.conclusion') %>
       </p>
     </div>
     <div class="span follow">
-      <h1>Suivez-moi</h1>
+      <h1><%= t '.follow.title' %></h1>
       <ul>
         <li>
-          <a href="http://feeds.feedburner.com/RemyHannequin-Portfolio" title="Ajoutez-moi à vos flux RSS">
+          <a href="http://feeds.feedburner.com/RemyHannequin-Portfolio" title="<%= t '.follow.rss' %>">
             <img src="/img/rss.png" alt="Flux RSS" height="40" width="40" /></a>
         </li>
         <li>
-          <a href="http://twitter.com/rhannequin" title="Suivez-moi sur Twitter">
+          <a href="http://twitter.com/rhannequin" title="<%= t '.follow.twitter' %>">
             <img src="/img/twitter.png" alt="Twitter" width="40" height="40" />
           </a>
         </li>
         <li>
-          <a href="https://github.com/rhannequin" title="Consultez l'évolution des mes projets sur Github">
+          <a href="https://github.com/rhannequin" title="<%= t '.follow.github' %>">
             <img src="/img/github.png" alt="Github" height="40" width="40">
           </a>
         </li>
         <li>
-          <a href="http://www.linkedin.com/profile/view?id=102517434" title="Connectez-vous à moi sur LinkedIn">
+          <a href="http://www.linkedin.com/profile/view?id=102517434" title="<%= t '.follow.linkedin' %>">
             <img src="/img/linkedin.png" alt="LinkedIn" height="40" width="40" />
           </a>
         </li>
         <li>
-          <a href="http://www.viadeo.com/fr/profile/remy.hannequin" title="Connectez-vous à moi sur Viadeo">
+          <a href="http://www.viadeo.com/fr/profile/remy.hannequin" title="<%= t '.follow.viadeo' %>">
             <img src="/img/viadeo.png" alt="Viadeo" width="40" height="39" />
           </a>
         </li>
         <li>
-          <a href="https://www.masterbranch.com/developer/RemyHannequin" title="Consultez l'évolution de mes projets Github et Bitbucket sur Masterbranch">
+          <a href="https://www.masterbranch.com/developer/RemyHannequin" title="<%= t '.follow.masterbranch' %>">
             <img src="/img/masterbranch.png" alt="Vimeo" width="40" height="39" />
           </a>
         </li>
       </ul>
     </div>
     <div class="span tweets">
-      <h1>Derniers tweets</h1>
+      <h1><%= t '.tweets.title' %></h1>
       <div id="contentTweets">
-        <img src="/img/ajaxLoader.gif" alt="Chargement des tweets...">
+        <img src="/img/ajaxLoader.gif" alt="<%= t '.tweets.loading' %>">
       </div>
     </div>
   </div>
   <div class="span5">
     <div class="span dates">
-      <h2>Expériences</h2>
+      <h2><%= t '.experience.title' %></h2>
       <ul>
-        <li class="date">2012 / 2014</li>
-        <li>Apprenti Développeur Web à la RATP</li>
-        <li class="date">2011 / 2012</li>
-        <li>Apprenti Développeur Web chez Krash Studio</li>
-        <li class="date">avril / juin 2011</li>
-        <li>Stage Développement Web chez Urbanmedia (Singapour)</li>
-        <li class="date">juin / juillet 2010</li>
-        <li>Stage Développement Web à la RATP</li>
+        <li class="date"><%= t '.experience.ratp.employee.date' %></li>
+        <li><%= t '.experience.ratp.employee.label' %></li>
+        <li class="date"><%= t '.experience.kontest.date' %></li>
+        <li><%= t '.experience.kontest.label' %></li>
+        <li class="date"><%= t '.experience.urbanmedia.date' %></li>
+        <li><%= t '.experience.urbanmedia.label' %></li>
+        <li class="date"><%= t '.experience.ratp.intern.date' %></li>
+        <li><%= t '.experience.ratp.intern.label' %></li>
       </ul>
     </div>
-    <div class="span formation dates">
-      <h2>Formation</h2>
+    <div class="span school dates">
+      <h2><%= t '.school.title' %></h2>
       <ul>
-        <li class="date">2012 / 2014</li>
-        <li>Master of Science Ingénierie du Web et e-business</li>
-        <li class="date">2011 / 2012</li>
-        <li>Licence professionnelle ATC STIC</li>
-        <li class="date">2011</li>
-        <li>DUT Services et Réseaux de Communication (SRC)</li>
-        <li class="date">2009</li>
-        <li>Bac S Sciences de l'Ingénieur mention AB</li>
+        <li class="date"><%= t '.school.esgi.date' %></li>
+        <li><%= t '.school.esgi.label' %></li>
+        <li class="date"><%= t '.school.atc.date' %></li>
+        <li><%= t '.school.atc.label' %></li>
+        <li class="date"><%= t '.school.src.date' %></li>
+        <li><%= t '.school.src.label' %></li>
+        <li class="date"><%= t '.school.bac.date' %></li>
+        <li><%= t '.school.bac.label' %></li>
       </ul>
     </div>
     <div class="row dev">
-      <h2>Développement</h2>
+      <h2><%= t '.development.title' %></h2>
       <div class="span6">
-        <h3>Environnement</h3>
+        <h3><%= t '.development.environment.title' %></h3>
         <ul>
-          <li>GIT : <a href="http://nvie.com/posts/a-successful-git-branching-model">branching model</a></li>
-          <li>Linux</li>
+          <li><%= t '.development.environment.git' %> : <a href="http://nvie.com/posts/a-successful-git-branching-model"><%= t '.development.environment.git_branching_model' %></a></li>
+          <li><%= t '.development.environment.linux' %></li>
           <li>
-            APIs<ul>
-              <li>Facebook</li>
-              <li>YouTube</li>
-              <li>Dailymotion</li>
-              <li>Deezer</li>
-              <li>Google Analytics</li>
-              <li>Foursquare</li>
+            <%= t '.development.environment.api.title' %><ul>
+              <li><%= t '.development.environment.api.facebook' %></li>
+              <li><%= t '.development.environment.api.youtube' %></li>
+              <li><%= t '.development.environment.api.dailymotion' %></li>
+              <li><%= t '.development.environment.api.deezer' %></li>
+              <li><%= t '.development.environment.api.ga' %></li>
+              <li><%= t '.development.environment.api.foursquare' %></li>
             </ul>
           </li>
         </ul>
       </div>
       <div class="span6">
-        <h3>Outils</h3>
+        <h3><%= t '.development.tools.title' %></h3>
         <ul>
-          <li>PHP5 &amp; MySQL</li>
-          <li>JavaScript</li>
-          <li>CoffeeScript</li>
-          <li>Ruby</li>
-          <li>HTML &amp; CSS</li>
+          <li><%= t '.development.tools.php' %></li>
+          <li><%= t '.development.tools.js' %></li>
+          <li><%= t '.development.tools.cf' %></li>
+          <li><%= t '.development.tools.rb' %></li>
+          <li><%= t '.development.tools.html' %></li>
         </ul>
         <ul>
-          <li>Symfony</li>
-          <li>Ruby On Rails</li>
-          <li>Node.js, Express</li>
-          <li>BackboneJS, RequireJS, Grunt, Bower</li>
+          <li><%= t '.development.tools.sf' %></li>
+          <li><%= t '.development.tools.ror' %></li>
+          <li><%= t '.development.tools.node' %></li>
+          <li><%= t '.development.tools.libsjs' %></li>
         </ul>
       </div>
     </div>
-    <p><a href="/profile">Voir mon profil complet</a></p><!-- TODO: check URL %-->
+    <p><a href="/profile"><%= t '.development.more' %></a></p><!-- TODO: check URL %-->
     <div class="span works" id="work">
-      <h1>Derniers travaux</h1>
+      <h1><%= t '.works.title' %></h1>
       <!-- TODO: portfolio -->
     </div>
   </div>

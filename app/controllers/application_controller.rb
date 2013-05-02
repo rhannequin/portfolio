@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_filter :current_user, :prepend
+  before_filter :set_locale, :current_user, :prepend
   protect_from_forgery
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
   private
     def prepend

@@ -1,11 +1,11 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
-  hello: "Hello World!"
+fr:
+  hello: "Bonjour le monde !"
   pages:
     home:
-      title: "About"
+      title: "À propos"
       presentation:
         esgi:
           intro: "Je suis actuellement apprenti en première année de Master of Science spécialisation Ingénierie du Web et e-business à l'<a href=\"http://www.esgi.fr\"><abbr title=\"École Supérieure de Génie Informatique\">ESGI</abbr></a>."
@@ -14,7 +14,7 @@ en:
         resources: "Ce site vous permettra de voir l'ensemble de <strong><a href=\"portfolio\">mes travaux</a></strong>. Mon <a href=\"/data/CV_Remy_Hannequin.pdf\"><abbr title=\"Curriculum Vitae\">CV</abbr> (<abbr title=\"Portable Document Format\">PDF</abbr>)</a> et de plus amples informations me concernant sont disponibles sur <strong><a href=\"profil\">mon profil</a></strong>. Vous pouvez également <strong><a href=\"contact\">me contacter</a></strong> pour toute information complémentaire."
         conclusion: "Je vous souhaite une agréable visite."
       follow:
-        title: "Follow me"
+        title: "Suivez-moi"
         rss: "Ajoutez-moi à vos flux RSS"
         twitter: "Suivez-moi sur Twitter"
         github: "Consultez l'évolution des mes projets sur Github"
@@ -25,7 +25,7 @@ en:
         title: "Derniers tweets"
         loading: "Chargement des tweets..."
       experience:
-        title: "Professional Experience"
+        title: "Expériences"
         ratp:
           intern:
             date: "juin / juillet 2010"
@@ -54,9 +54,9 @@ en:
           date: "2009"
           label: "Bac S Sciences de l'Ingénieur mention AB"
       development:
-        title: "Development"
+        title: "Développement"
         environment:
-          title: "Environment"
+          title: "Environnement"
           git: "GIT"
           git_branching_model: "branching model"
           linux: "Linux"
@@ -69,7 +69,7 @@ en:
             ga: "Google Analytics"
             foursquare: "Foursquare"
         tools:
-          title: "Tools"
+          title: "Outils"
           php: "PHP5 & MySQL"
           js: "JavaScript"
           cf: "CoffeeScript"
@@ -81,4 +81,4 @@ en:
           libsjs: "BackboneJS, RequireJS, Grunt, Bower"
         more: "Voir mon profil complet"
       works:
-        title: "Last projects"
+        title: "Derniers travaux"
