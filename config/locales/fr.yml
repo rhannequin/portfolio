@@ -3,6 +3,42 @@
 
 fr:
   hello: "Bonjour le monde !"
+  layout:
+    head:
+      title: "Rémy Hannequin - Développeur Web : JavaScript, PHP, Ruby, HTML5 CSS3"
+      description: "Portfolio de Rémy Hannequin, passionné du Web. Développeur Web JavaScript PHP Ruby."
+      keywords: "internet, developpeur, developer, web, php, symfony, git, html, css, javascript, ruby"
+      home: "Accueil"
+      profile: "Profil"
+      portfolio: "Portfolio"
+      contact: "Contact"
+      name: "Rémy Hannequin"
+      job: "Développeur Web"
+    you_are: "Vous êtes : "
+    footer:
+      profile:
+        title: "Profil"
+        school: "Formation"
+        experience: "Expériences"
+        skills: "Compétences"
+        personal: "Personnel"
+        cv:
+          pdf: "CV (PDF)"
+          html: "CV (HTML)"
+      follow:
+        title: "Suivez-moi"
+        rss: "Flux RSS"
+        twitter: "Twitter"
+        github: "Github"
+        linkedin: "LinkedIn"
+        viadeo: "Viadeo"
+      links:
+        title: "Liens"
+        esgi: "ESGI"
+        ratp: "RATP"
+        sitemap: "Plan du site"
+        accessibility: "Politique d'accessibilité"
+        contact: "Contact"
   pages:
     home:
       title: "À propos"

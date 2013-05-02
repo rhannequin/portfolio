@@ -3,6 +3,42 @@
 
 en:
   hello: "Hello World!"
+  layout:
+    head:
+      title: "Rémy Hannequin - Web Developer: JavaScript, PHP, Ruby, HTML5 CSS3"
+      description: "Rémy Hannequin's Portfolio, web lover. Web Developer JavaScript PHP Ruby."
+      keywords: "internet, developer, web, php, symfony, git, html, css, javascript, ruby"
+      home: "Home"
+      profile: "Profile"
+      portfolio: "Portfolio"
+      contact: "Contact"
+      name: "Rémy Hannequin"
+      job: "Web Developer"
+    you_are: "You are: "
+    footer:
+      profile:
+        title: "Profile"
+        school: "School"
+        experience: "Work Experience"
+        skills: "Skills"
+        personal: "Personal"
+        cv:
+          pdf: "CV (PDF)"
+          html: "CV (HTML)"
+      follow:
+        title: "Follow me"
+        rss: "RSS Feed"
+        twitter: "Twitter"
+        github: "Github"
+        linkedin: "LinkedIn"
+        viadeo: "Viadeo"
+      links:
+        title: "Links"
+        esgi: "ESGI"
+        ratp: "RATP"
+        sitemap: "Sitemap"
+        accessibility: "Accessibility"
+        contact: "Contact"
   pages:
     home:
       title: "About"

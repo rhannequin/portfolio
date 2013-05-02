@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rémy Hannequin - Développeur Web : JavaScript, PHP, Ruby, HTML5 CSS3 - <%= @title %></title>
+  <title><%= t 'layout.head.title' %> - <%= @title %></title>
   <%= stylesheet_link_tag    "bootstrap.min", "bootstrap-responsive.min", "application", controller_name, :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
   <meta name="viewport" content="width=device-width" />
   <meta name="Author" content="Rémy Hannequin" />
-  <meta name="description" content="Portfolio de Rémy Hannequin, passionné du Web. Développeur Web JavaScript PHP Ruby. <%= @description_page %>" />
-  <meta name="keywords" content="internet, developpeur, developer, web, php, symfony, git, html, css, javascript, ruby <%= @keywords %>" />
+  <meta name="description" content="<%= t 'layout.head.description' %> <%= @description_page %>" />
+  <meta name="keywords" content="<%= t 'layout.head.keywords' %> <%= @keywords %>" />
   <%= csrf_meta_tags %>
   <!-- TODO Facebook meta tags -->
   <!-- TODO no follow page 404 -->
@@ -19,14 +19,14 @@
     <div class="container">
       <span id="gravatar" class="visible-desktop"><a href="/"></a></span>
       <ul class="nav nav-pills pull-right">
-        <li class="<%= 'active' if action_name     == 'home' %>"><a href="/">Accueil</a></li>
-        <li class="<%= 'active' if action_name     == 'profile' %>"><a href="/profile">Profil</a></li>
-        <li class="<%= 'active' if controller_name == 'portfolio' %>"><a href="/portfolio">Portfolio</a></li>
-        <li class="<%= 'active' if action_name     == 'contact' %>"><a href="/contact">Contact</a></li>
+        <li class="<%= 'active' if action_name     == 'home' %>"><a href="/"><%= t 'layout.head.home' %></a></li>
+        <li class="<%= 'active' if action_name     == 'profile' %>"><a href="/profile"><%= t 'layout.head.profile' %></a></li>
+        <li class="<%= 'active' if controller_name == 'portfolio' %>"><a href="/portfolio"><%= t 'layout.head.portfolio' %></a></li>
+        <li class="<%= 'active' if action_name     == 'contact' %>"><a href="/contact"><%= t 'layout.head.contact' %></a></li>
         <!-- TODO: check URLs -->
       </ul>
-      <h3 class="muted name"><a href="/">Rémy Hannequin</a></h3>
-      <h3 class="muted job"><a href="/"><span class="bracket">{</span> Développeur Web <span class="bracket">}</a></span></h3>
+      <h3 class="muted name"><a href="/"><%= t 'layout.head.name' %></a></h3>
+      <h3 class="muted job"><a href="/"><span class="bracket">{</span> <%= t 'layout.head.job' %> <span class="bracket">}</span></a></h3>
     </div>
   </header>
 
@@ -34,7 +34,7 @@
 
   <div class="container <%= action_name %>">
       <p id="fil_ariane">
-        Vous êtes :
+        <%= t 'layout.you_are' %>
         <% if controller_name == 'portfolio' %>
           <%= fil_ariane(action_name, @title, true) %>
         <% else %>
@@ -51,51 +51,52 @@
     <div class="container">
       <div class="row">
         <div class="span4">
-          <h3>Profil</h3>
+          <h3><%= t 'layout.footer.profile.title' %></h3>
           <hr />
           <ul>
-            <li><a href="/profile#formation">Formation</a></li>
+            <li><a href="/profile#formation"><%= t 'layout.footer.profile.school' %></a></li>
             <hr />
-            <li><a href="/profile#experiences">Expériences</a></li>
+            <li><a href="/profile#experiences"><%= t 'layout.footer.profile.experience' %></a></li>
             <hr />
-            <li><a href="/profile#competences">Compétences</a></li>
+            <li><a href="/profile#competences"><%= t 'layout.footer.profile.skills' %></a></li>
             <hr />
-            <li><a href="/profile#personnel">Personnel</a></li>
+            <li><a href="/profile#personnel"><%= t 'layout.footer.profile.personal' %></a></li>
             <hr />
-            <li><a href="/CV_Remy_Hannequin.pdf">CV (PDF)</a> / <a href="/curriculum-vitae">CV (HTML)</a></li>
+            <li><a href="/CV_Remy_Hannequin.pdf"><%= t 'layout.footer.profile.cv.pdf' %></a> / <a href="/curriculum-vitae"><%= t 'layout.footer.profile.cv.html' %></a></li>
             <!-- TODO: check URL -->
+            <!-- TODO: english links -->
             <hr />
           </ul>
         </div>
         <div class="span4">
-          <h3>Suivez-moi</h3>
+          <h3><%= t 'layout.footer.follow.title' %></h3>
           <hr />
           <ul>
-            <li><a href="http://feeds.feedburner.com/RemyHannequin-Portfolio">Flux RSS</a></li>
+            <li><a href="http://feeds.feedburner.com/RemyHannequin-Portfolio"><%= t 'layout.footer.follow.rss' %></a></li>
             <hr />
-            <li><a href="http://twitter.com/rhannequin">Twitter</a></li>
+            <li><a href="http://twitter.com/rhannequin"><%= t 'layout.footer.follow.twitter' %></a></li>
             <hr />
-            <li><a href="https://github.com/rhannequin">Github</a></li>
+            <li><a href="https://github.com/rhannequin"><%= t 'layout.footer.follow.github' %></a></li>
             <hr />
-            <li><a href="http://www.linkedin.com/profile/view?id=102517434">LinkedIn</a></li>
+            <li><a href="http://www.linkedin.com/profile/view?id=102517434"><%= t 'layout.footer.follow.linkedin' %></a></li>
             <hr />
-            <li><a href="http://www.viadeo.com/fr/profile/remy.hannequin">Viadeo</a></li>
+            <li><a href="http://www.viadeo.com/fr/profile/remy.hannequin"><%= t 'layout.footer.follow.viadeo' %></a></li>
             <hr />
           </ul>
         </div>
         <div class="span4">
-          <h3>Liens</h3>
+          <h3><%= t 'layout.footer.links.title' %></h3>
           <hr />
           <ul>
-            <li><a href="http://www.esgi.fr">ESGI</a></li>
+            <li><a href="http://www.esgi.fr"><%= t 'layout.footer.links.esgi' %></a></li>
             <hr />
-            <li><a href="http://ratp.fr">RATP</a></li>
+            <li><a href="http://ratp.fr"><%= t 'layout.footer.links.ratp' %></a></li>
             <hr />
-            <li><a href="/plan">Plan du site</a></li>
+            <li><a href="/plan"><%= t 'layout.footer.links.sitemap' %></a></li>
             <hr />
-            <li><a href="/accessibilite">Politique d'accessibilité</a></li>
+            <li><a href="/accessibilite"><%= t 'layout.footer.links.accessibility' %></a></li>
             <hr />
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/contact"><%= t 'layout.footer.links.contact' %></a></li>
             <hr />
           </ul>
       </div>
