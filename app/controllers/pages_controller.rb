@@ -3,21 +3,27 @@
 class PagesController < ApplicationController
 
   def home
-    @title = 'Accueil'
-    @description_page = 'Page d\'accueil.'
-    @keywords = 'hannequin rémy, rémy hannequin, développeur web, développeur php, site, portfolio, web, intégrateur, php, xhtml, css, communication, multimédia, web 2.0';
+    @title = I18n.t('title.home')
+    @description_page = I18n.t('description.home')
   end
 
   def profile
-    @title = 'Profil'
-    @description_page = 'Récapitulatif de mes compétences et expériences ainsi que des informations concernant ma formation.'
-    @keywords = 'profil, formation, compétences, expériences, personnel'
+    @title = I18n.t('title.profile')
+    @description_page = I18n.t('description.profile')
+    @keywords = [
+      I18n.t('keywords.profile'), I18n.t('keywords.school'), I18n.t('keywords.skills'),
+      I18n.t('keywords.experience'), I18n.t('keywords.personal')
+    ].join(', ')
   end
 
   def curriculum_vitae
-    @title = 'Curriculum vitae'
-    @description_page = 'Mon curriculum vitae au format html.'
-    @keywords = 'curriculum, vitae, cv, formation, expériences, loisirs, personnel'
+    @title = I18n.t('title.curriculumvitae')
+    @description_page = I18n.t('description.cv')
+    @keywords = [
+      I18n.t('keywords.curriculum'), I18n.t('keywords.vitae'), I18n.t('keywords.cv'),
+      I18n.t('keywords.school'), I18n.t('keywords.experience'), I18n.t('keywords.hobbies'),
+      I18n.t('keywords.personal')
+    ].join(', ')
   end
 
 end

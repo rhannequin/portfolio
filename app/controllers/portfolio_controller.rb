@@ -7,9 +7,9 @@ class PortfolioController < ApplicationController
   def index
     @projects_primary = Project.where(:priority => :primary).order('position').all
     @projects_secondary = Project.where(:priority => :secondary).order('position').all
-    @title = ''
-    @description_page = 'Liste des travaux effectués.'
-    @keywords = 'portfolio, créations, travaux'
+    @title = I18n.t('title.portfolio')
+    @description_page = I18n.t('description.portfolio')
+    @keywords = [I18n.t('keywords.portfolio'), I18n.t('keywords.projects')].join(', ')
   end
 
   def show

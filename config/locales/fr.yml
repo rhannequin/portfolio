@@ -118,3 +118,25 @@ fr:
         more: "Voir mon profil complet"
       works:
         title: "Derniers travaux"
+  title:
+    home: "Accueil"
+    profile: "Profil"
+    curriculumvitae: "Curriculum vitae"
+    portfolio: "Portfolio"
+  description:
+    home: "Page d'accueil."
+    profile: "Récapitulatif de mes compétences et expériences ainsi que des informations concernant ma formation."
+    cv: "Mon curriculum vitae au format html."
+    portfolio: "Liste des travaux effectués."
+  keywords:
+    profile: "profil"
+    school: "formation"
+    skills: "competences"
+    experience: "experience"
+    personal: "personnel"
+    curriculum: "curriculum"
+    vitae: "vitae"
+    cv: "cv"
+    hobbies: "loisirs"
+    portfolio: "portfolio"
+    projects: "projets"
