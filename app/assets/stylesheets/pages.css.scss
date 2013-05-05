@@ -186,7 +186,7 @@
 
   .dev { margin-left: 2.12766%; }
   .dev > .span6 { margin-left: 0; }
- .main .span5 .span6 ul ul { margin-left: 10px; } /* to override margin: 0 */
+  .main .span5 .span6 ul ul { margin-left: 10px; } /* to override margin: 0 */
   .span5 > p { text-align: right; }
 
 
@@ -195,6 +195,7 @@
   .works {
     text-align: center;
 
+    .tag { display: inline-block; }
     .choice {
       cursor: pointer;
     }
