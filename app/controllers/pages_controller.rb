@@ -20,4 +20,21 @@ class PagesController < ApplicationController
     @keywords = 'curriculum, vitae, cv, formation, expériences, loisirs, personnel'
   end
 
+  def contact
+    @title = 'Contact'
+    @message = Message.new
+  end
+
+  def send_contact
+    @message = Message.new(params[:message])
+
+    if @message.valid?
+      NotificationsMailer.new_message(@message).deliver
+      redirect_to(:contact, :notice => true)
+    else
+      flash.now.alert = "Veuillez remplir tous les champs"
+      render :contact
+    end
+  end
+
 end

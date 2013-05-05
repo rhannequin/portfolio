@@ -60,5 +60,20 @@ module Portfolio
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Contact email
+    config.action_mailer.smtp_settings = {
+        :address              => ENV['EMAIL_ADDRESS'],
+        :port                 => ENV['EMAIL_PORT'],
+        :domain               => ENV['EMAIL_DOMAIN'],
+        :user_name            => ENV['EMAIL_USERNAME'],
+        :password             => ENV['EMAIL_PASSWORD'],
+        :authentication       => :plain,
+        :enable_starttls_auto => true
+    }
+
+    config.action_mailer.default_url_options = {
+        :host => ENV['EMAIL_HOST']
+    }
   end
 end
