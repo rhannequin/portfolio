@@ -7,8 +7,9 @@
     'handlebars'
   ], function ($, _, Backbone, Handlebars) {
 
-    var $projectTemplate = Handlebars.compile($('#project-template').html()),
-        $uploadTemplate = Handlebars.compile($('#upload-template').html());
+    var compileHandlebars = Handlebars.compile,
+        $projectTemplate  = compileHandlebars($('#project-template').html()),
+        $uploadTemplate   = compileHandlebars($('#upload-template').html());
 
     /* PROJECTS */
 
@@ -53,6 +54,9 @@
 
     var ProjectsListView = Backbone.View.extend({
       el: '#work',
+      events: {
+        'click .choice': 'showProjectEvent'
+      },
       initialize: function (params) {
         this.collection = new ProjectsList(params.projects);
         this.collectionViews = [];
@@ -67,9 +71,41 @@
           this.collectionViews.push(projectView);
           this.$el.append(render.project);
         }
+        this.displayFirstProject();
+        this.displayPagination();
+      },
+      displayFirstProject: function() {
         var last = this.collectionViews[0];
-        last.show();
-        last.galeryItemView.show();
+        this.showProject(last);
+      },
+      displayPagination: function() {
+        var collectionViews = this.collectionViews,
+            len             = this.collectionViews.length,
+            str             = '';
+        for(var i  = 0; i < len; i++) {
+          var view = collectionViews[i];
+          str += '<span data-id="' + view.model.get('id') + '" class="choice label label-inverse">' + (i+1) + '</span>';
+        }
+        this.$el.append(str);
+      },
+      showProjectEvent: function (e) {
+        e.preventDefault();
+        var id              = $(e.currentTarget).data('id'),
+            collectionViews = this.collectionViews,
+            len             = this.collectionViews.length;
+        for(var i = 0; i < len; i++) {
+          var view = collectionViews[i];
+          if(view.model.get('id') === id) {
+            this.showProject(view);
+            break;
+          }
+        }
+
+      },
+      showProject: function (view) {
+        $('.work').add('.galery-item').hide();
+        view.show();
+        view.galeryItemView.show();
       }
     });
 
