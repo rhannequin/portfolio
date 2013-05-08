@@ -7,19 +7,45 @@
     'handlebars'
   ], function ($, _, Backbone, Handlebars) {
 
+    var $projectTemplate = Handlebars.compile($('#project-template').html()),
+        $uploadTemplate = Handlebars.compile($('#upload-template').html());
+
     /* PROJECTS */
 
-    var ProjectView = Backbone.View.extend({
-      template: Handlebars.compile($('#project-template').html()),
+    var GaleryItemView = Backbone.View.extend({
+      template: $uploadTemplate,
+      el: '.galery',
       initialize: function (params) {
         this.model = params.model;
+        this.id = params.id;
+      },
+      render: function() {
+        this.$el.append(this.template({link: this.model, index: this.id}));
+      },
+      show: function() {
+        $('#galery_item_' + this.id).show();
+      }
+    });
+
+    var ProjectView = Backbone.View.extend({
+      template: $projectTemplate,
+      initialize: function (params) {
+        this.model = params.model;
+        this.galeryItemView = new GaleryItemView({
+          model: this.model.get('upload_link'),
+          id: this.model.get('id')
+        });
       },
       render: function () {
         var json = this.model.toJSON();
+        this.galeryItemView.render();
         return {
           project: this.$el.html(this.template(json)),
           upload: json.upload_link
         };
+      },
+      show: function() {
+        $('#work_info_' + this.model.get('id')).show();
       }
     });
 
@@ -27,22 +53,23 @@
 
     var ProjectsListView = Backbone.View.extend({
       el: '#work',
-      $galery: $('.galery'),
       initialize: function (params) {
         this.collection = new ProjectsList(params.projects);
+        this.collectionViews = [];
         this.render();
       },
       render: function () {
         var projects = this.collection.models;
         var projectsLength = projects.length;
         for(var i = 0; i < projectsLength; i++) {
-          var projectView = new ProjectView({model: projects[i]});
+          var projectView = new ProjectView({model: projects[i], index: i});
           var render = projectView.render();
+          this.collectionViews.push(projectView);
           this.$el.append(render.project);
-          if(render.upload) {
-            this.$galery.append('<img src="' + render.upload + '" alt="" />');
-          }
         }
+        var last = this.collectionViews[0];
+        last.show();
+        last.galeryItemView.show();
       }
     });
 
