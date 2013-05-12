@@ -20,7 +20,7 @@
     }
     h2 {
       font-size: 23px;
-      margin: 40px 0 20px;
+      margin: 15px 0 20px;
     }
     h3 {
       font-size: 18px;
@@ -35,24 +35,13 @@
     .competences h4, .competences h5 {
       text-align: center;
     }
-    .cv ul, .nav ul, .skills ul {
-      margin: 0;
-    }
-    .cv li, .nav li, .skills li {
-      list-style-type: none;
+    .nav {
+      margin-bottom: 0;
     }
   }
 
   .skills li {
     text-align: center;
-  }
-
-  .cv {
-    text-align: right;
-
-    p {
-      margin: 0;
-    }
   }
 
   .languages li {
@@ -118,7 +107,6 @@
     .languages .span6, .head .span6 { width: 100%; float: none; }
     .languages .language { text-align: left; }
     .languages .row { margin-bottom: 10px; }
-    .cv { text-align: left; }
 
   }
 
