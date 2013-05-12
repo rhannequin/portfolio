@@ -37,6 +37,13 @@
     }
     .nav {
       margin-bottom: 0;
+
+      ul {
+        text-align: center;
+      }
+      li {
+        display: inline;
+      }
     }
   }
 
