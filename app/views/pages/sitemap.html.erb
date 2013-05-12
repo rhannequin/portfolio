@@ -1,0 +1,22 @@
+<h1>Plan du site</h1>
+
+<div class="row-fluid">
+  <ul>
+    <li><%= link_to 'Accueil', root_path %></li>
+    <li>
+      <a href="/profile">Profil</a>
+      <ul>
+        <li><a href="/profile#formation">Formation</a></li>
+        <li><a href="/profile#experiences">Expériences</a></li>
+        <li><a href="/profile#competences">Compétences</a></li>
+        <li><a href="/profile#personnel">Personnel</a></li>
+        <li><a href="/curriculum-vitae">CV</a></li>
+      </ul>
+    </li>
+    <li><%= link_to 'Portfolio', portfolio_path %></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/accessibility">Politique d'accessibilité</a></li>
+  </ul>
+</div>
+
+<p><%= link_to "Retourner à l'accueil", root_path %></p>

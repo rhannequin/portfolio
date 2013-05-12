@@ -27,6 +27,18 @@ class PagesController < ApplicationController
     @keywords = 'curriculum, vitae, cv, formation, expériences, loisirs, personnel'
   end
 
+  def sitemap
+    @title = 'Plan du site'
+    @description_page = 'Plan du site.'
+    @keywords = 'plan, site, navigation'
+  end
+
+  def accessibility
+    @title = "Politique d'accessibilité"
+    @description_page = 'Liste des raccourcis clavier (accesskey) disponibles sur le site.'
+    @keywords = 'accessibilité, handicap, w3c, ergonomie, ergonome, accessible, accesskey, raccourcis clavier'
+  end
+
   def contact
     @title = 'Contact'
     @message = Message.new
