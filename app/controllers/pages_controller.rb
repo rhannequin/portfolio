@@ -56,14 +56,4 @@ class PagesController < ApplicationController
     end
   end
 
-  def require_js_init
-    @require_js_script = ''
-    @require_js_params = {}
-  end
-
-  def set_require_js(script, params = {})
-    @require_js_script = script
-    @require_js_params.merge! params
-  end
-
 end

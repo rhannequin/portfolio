@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   before_filter :current_user, :prepend
   protect_from_forgery
 
+  def require_js_init
+    @require_js_script = ''
+    @require_js_params = {}
+  end
+
+  def set_require_js(script, params = {})
+    @require_js_script = script
+    @require_js_params.merge! params
+  end
+
   private
     def prepend
       @title = 'lol'
