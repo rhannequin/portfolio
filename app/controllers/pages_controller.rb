@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     )}
   end
 
-  def profile
+  def about
     @title = 'Profil'
     @description_page = 'Récapitulatif de mes compétences et expériences ainsi que des informations concernant ma formation.'
     @keywords = 'profil, formation, compétences, expériences, personnel'
