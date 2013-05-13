@@ -1,42 +1,42 @@
-tag_one:
+html:
   label: "HTML / CSS"
-tag_two:
+javascript:
   label: JavaScript
-tag_three:
+symfony:
   label: Symfony
-tag_four:
+sql:
   label: SQL
-tag_five:
+php:
   label: PHP
-tag_six:
+sessions:
   label: Sessions
-tag_seven:
+design:
   label: Design
-tag_eight:
+indesign:
   label: InDesign
-tag_none:
+communication:
   label: Communication
-tag_ten:
+layout:
   label: Mise en page
-tag_eleven:
+webdesign:
   label: Webdesign
-tag_twelve:
+photoshop:
   label: Photoshop
-tag_thirteen:
+video:
   label: Vidéo
-tag_fourteen:
+stopmotion:
   label: Stop Motion
-tag_fifteen:
+mvc:
   label: MVC
-tag_sixteen:
+functionnaltests:
   label: Tests fonctionnels
-tag_seventeen:
+deezerapi:
   label: API Deezer
-tag_eighteen:
+dailymotionapi:
   label: API Dailymotion
-tag_nineteen:
+youtubeapi:
   label: API YouTube
-tag_twenty:
+backbone:
   label: Backbone.js
-tag_twentyone:
+coffeescript:
   label: CoffeeScript

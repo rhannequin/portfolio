@@ -24,7 +24,7 @@
           <span class="label label-inverse"><%= tag.label %></span>
         <% end %>
         </div>
-        <p class="description"><%= project.description %></p>
+        <p class="description"><%= project.description.html_safe %></p>
         <p class="more">
           <%= link_to('En savoir +', show_portfolio_path(project.slug)) %>
         </p>
@@ -62,13 +62,13 @@
           <span class="label label-inverse"><%= tag.label %></span>
         <% end %>
         </div>
-        <p class="description"><%= project.description %></p>
+        <p class="description"><%= project.description.html_safe %></p>
         <p class="more">
           <%= link_to('En savoir +', show_portfolio_path(project.slug)) %>
         </p>
       </div>
 
-    <% if (index != 0 and index%3 != 2) or index == @projects_secondary.size - 1 %>
+    <% if (index != 0 and index%3 == 2) or index == (@projects_secondary.size - 1) %>
     </div>
     <% end %>
 
