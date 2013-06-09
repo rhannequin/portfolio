@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <tr>
     <th>#</th>
+    <th>Position</th>
     <th>Title</th>
     <th>Slug</th>
     <th>Créé le</th>
@@ -12,6 +13,7 @@
   <% @projects.each do |project| %>
   <tr>
     <td><%= project.id %></td>
+    <td><%= project.position %></td>
     <td><%= project.title %></td>
     <td><%= link_to project.slug, show_portfolio_path(project.slug) %></td>
     <td><%= l project.created_at, format: :short %></td>

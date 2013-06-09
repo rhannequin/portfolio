@@ -36,7 +36,21 @@ dailymotionapi:
   label: API Dailymotion
 youtubeapi:
   label: API YouTube
+facebookapi:
+  label: API Facebook
+foursquareapi:
+  label: API Foursquare
+githubapi:
+  label: API Github
+twitterapi:
+  label: API Twitter
+googlemapsapi:
+  label: API Google Maps
 backbone:
   label: Backbone.js
 coffeescript:
   label: CoffeeScript
+ruby:
+  label: Ruby
+rails:
+  label: Ruby On Rails
