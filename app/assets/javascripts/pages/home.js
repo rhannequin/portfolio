@@ -1,20 +1,21 @@
 (function () {
 
-  require([
-    'jquery',
-    'lodash',
-    'backbone',
-    'handlebars'
-  ], function ($, _, Backbone, Handlebars) {
+  require(['jquery', 'lodash', 'backbone', 'handlebars'], function ($, _, Backbone, Handlebars) {
 
-    var compileHandlebars = Handlebars.compile,
-        $projectTemplate  = compileHandlebars($('#project-template').html()),
-        $uploadTemplate   = compileHandlebars($('#upload-template').html());
+    var getById = function (id) {
+          return document.getElementById(id);
+        },
+        requireParams = JSON.parse(getById('require-js').getAttribute('data-params')),
+        compileHandlebars = function (id) {
+          return Handlebars.compile(getById(id).innerHTML);
+        },
+        projectTemplate  = compileHandlebars('project-template'),
+        uploadTemplate   = compileHandlebars('upload-template');
 
     /* PROJECTS */
 
     var GaleryItemView = Backbone.View.extend({
-      template: $uploadTemplate,
+      template: uploadTemplate,
       el: '.galery',
       initialize: function (params) {
         this.model = params.model;
@@ -29,7 +30,7 @@
     });
 
     var ProjectView = Backbone.View.extend({
-      template: $projectTemplate,
+      template: projectTemplate,
       initialize: function (params) {
         this.model = params.model;
         this.galeryItemView = new GaleryItemView({
@@ -90,7 +91,7 @@
       },
       showProjectEvent: function (e) {
         e.preventDefault();
-        var id              = $(e.currentTarget).data('id'),
+        var id              = e.currentTarget.getAttribute('data-id'),
             collectionViews = this.collectionViews,
             len             = this.collectionViews.length;
         for(var i = 0; i < len; i++) {
@@ -111,78 +112,63 @@
 
     var TweetsView = Backbone.View.extend({
       el: '#contentTweets',
-      apiUrl: 'http://api.twitter.com/1/statuses/user_timeline.json',
-      tweetsParams: {
-        screen_name: 'rhannequin',
-        count: 50
-      },
-      tweets: [],
+      tweets: JSON.parse(requireParams.tweets),
       initialize: function () {
-        this.makeRequest();
+        this.render();
       },
       render: function () {
         this.$el.html(this.showTweets(this.tweets));
-      },
-      makeRequest: function () {
-        var self = this;
-        var request = $.ajax({
-          url: this.apiUrl,
-          data: this.tweetsParams,
-          dataType: 'jsonp',
-        });
-        request.done(function (res) {
-          self.tweets = res;
-          self.render();
-        });
       },
       showTweets: function (tweets) {
         var today           = new Date(),
             tweetsToDisplay = [],
             textDisplay     = '',
-            limit           = 5;
+            limit           = 7;
         var yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         today = today.getDate() + '-' + today.getMonth();
         yesterday = yesterday.getDate() + '-' + yesterday.getMonth();
 
         for(var i = 0 ; i < limit ; i++) {
-          var t = tweets[i],
-              text = t.text;
-          if(text.substr(0, 1) === '@') {
-            limit++;
-            continue;
-          }
-          var tweet = {};
-          var dateTime = new Date(t.created_at),
-              date = dateTime.getDate() + '-' + dateTime.getMonth(),
-              time = dateTime.getHours();
-          if(time < 10) {
-            time = '0' + time;
-          }
-          var minutes = dateTime.getMinutes();
-          if(minutes < 10) {
-            minutes = '0' + minutes;
-          }
-          time += ':' + minutes;
+          var t = tweets[i];
+          if(typeof t !== 'undefined') {
+            var text = t.text;
+            if(text.substr(0, 1) === '@') {
+              limit++;
+              continue;
+            }
+            var tweet = {};
+            var dateTime = new Date(t.created_at),
+                date = dateTime.getDate() + '-' + dateTime.getMonth(),
+                time = dateTime.getHours();
+            if(time < 10) {
+              time = '0' + time;
+            }
+            var minutes = dateTime.getMinutes();
+            if(minutes < 10) {
+              minutes = '0' + minutes;
+            }
+            time += ':' + minutes;
 
-          switch(date) {
-          case today:
-            tweet.date = 'Aujourd\'hui';
-            break;
-          case yesterday:
-            tweet.date = 'Hier';
-            break;
-          default:
-            tweet.date = dateTime.getDate() + ' ' + this.replaceMonth(dateTime.getMonth()) + ' ' + dateTime.getFullYear();
-            break;
-          }
+            switch(date) {
+            case today:
+              tweet.date = 'Aujourd\'hui';
+              break;
+            case yesterday:
+              tweet.date = 'Hier';
+              break;
+            default:
+              tweet.date = dateTime.getDate() + ' ' + this.replaceMonth(dateTime.getMonth()) + ' ' + dateTime.getFullYear();
+              break;
+            }
 
-          tweet.text = this.clean(text);
-          tweet.time = time;
-          if(typeof tweetsToDisplay[tweet.date] === 'undefined') {
-            tweetsToDisplay[tweet.date] = [];
+            tweet.text = this.clean(text);
+            tweet.time = time;
+            if(typeof tweetsToDisplay[tweet.date] === 'undefined') {
+              tweetsToDisplay[tweet.date] = [];
+            }
+            tweetsToDisplay[tweet.date].push(tweet);
           }
-          tweetsToDisplay[tweet.date].push(tweet);
         }
 
         for (var todaysTweets in tweetsToDisplay) {
@@ -243,7 +229,7 @@
 
     var MainView = Backbone.View.extend({
       initialize: function () {
-        var projects = JSON.parse($('#require-js').data('params').projects);
+        var projects = JSON.parse(requireParams.projects);
         this.projectsListView = new ProjectsListView({projects: projects});
         this.tweetsView = new TweetsView();
       }

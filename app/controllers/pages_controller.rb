@@ -5,14 +5,33 @@ class PagesController < ApplicationController
   before_filter :require_js_init
 
   def home
+
+    Twitter.configure do |config|
+      config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
+      config.oauth_token = ENV['TWITTER_OAUTH_TOKEN']
+      config.oauth_token_secret = ENV['TWITTER_OAUTH_TOKEN_SECRET']
+      config.connection_options = Twitter::Default::CONNECTION_OPTIONS.merge(
+        :request => {
+          :open_timeout => 5,
+          :timeout => 20
+        }
+      )
+    end
+
+    timeline = Twitter.user_timeline 'rhannequin', :count => 30
+
     @title = 'Accueil'
     @description_page = 'Page d\'accueil.'
     @keywords = 'hannequin rémy, rémy hannequin, développeur web, développeur php, site, portfolio, web, intégrateur, php, xhtml, css, communication, multimédia, web 2.0';
     projects = Project.where(:priority => :primary).order('position').limit(5)
-    set_require_js "pages/home", { :projects => projects.to_json(
-      :include => :tags,
-      :methods => :upload_link
-    )}
+    set_require_js "pages/home", {
+      :projects => projects.to_json(
+        :include => :tags,
+        :methods => :upload_link
+      ),
+      :tweets => timeline.to_json
+    }
   end
 
   def about
