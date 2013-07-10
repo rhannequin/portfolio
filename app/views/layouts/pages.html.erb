@@ -3,14 +3,16 @@
 <head>
   <title><%= t 'layout.head.title' %> - <%= @title %></title>
   <%= stylesheet_link_tag    "bootstrap.min", "bootstrap-responsive.min", "application", controller_name, :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
   <meta name="viewport" content="width=device-width" />
   <meta name="Author" content="Rémy Hannequin" />
   <meta name="description" content="<%= t 'layout.head.description' %> <%= @description_page %>" />
   <meta name="keywords" content="<%= t 'layout.head.keywords' %> <%= @keywords %>" />
   <%= csrf_meta_tags %>
-  <!-- TODO Facebook meta tags -->
+  <meta property="og:title" content="Rémy Hannequin - Développeur Web - <%= @title %>" />
+  <meta property="og:url" content="<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>" />
+  <meta property="og:site_name" content="Portfolio de Rémy Hannequin, passionné du Web. Développeur Web PHP Symfony. <%= @description_page %>" />
+  <meta property="og:image" content="/img/portrait1.jpg" />
   <!-- TODO no follow page 404 -->
 </head>
 <body>
@@ -20,10 +22,9 @@
       <span id="gravatar" class="visible-desktop"><a href="/"></a></span>
       <ul class="nav nav-pills pull-right">
         <li class="<%= 'active' if action_name     == 'home' %>"><a href="/"><%= t 'layout.head.home' %></a></li>
-        <li class="<%= 'active' if action_name     == 'profile' %>"><a href="/profile"><%= t 'layout.head.profile' %></a></li>
+        <li class="<%= 'active' if action_name     == 'about' %>"><a href="/profile"><%= t 'layout.head.profile' %></a></li>
         <li class="<%= 'active' if controller_name == 'portfolio' %>"><a href="/portfolio"><%= t 'layout.head.portfolio' %></a></li>
         <li class="<%= 'active' if action_name     == 'contact' %>"><a href="/contact"><%= t 'layout.head.contact' %></a></li>
-        <!-- TODO: check URLs -->
       </ul>
       <h3 class="muted name"><a href="/"><%= t 'layout.head.name' %></a></h3>
       <h3 class="muted job"><a href="/"><span class="bracket">{</span> <%= t 'layout.head.job' %> <span class="bracket">}</span></a></h3>
@@ -54,16 +55,13 @@
           <h3><%= t 'layout.footer.profile.title' %></h3>
           <hr />
           <ul>
-            <li><a href="/profile#formation"><%= t 'layout.footer.profile.school' %></a></li>
+            <li><a href="/abut#formation"><%= t 'layout.footer.profile.school' %></a></li>
             <hr />
-            <li><a href="/profile#experiences"><%= t 'layout.footer.profile.experience' %></a></li>
+            <li><a href="/about#experiences"><%= t 'layout.footer.profile.experience' %></a></li>
             <hr />
-            <li><a href="/profile#competences"><%= t 'layout.footer.profile.skills' %></a></li>
+            <li><a href="/about#competences"><%= t 'layout.footer.profile.skills' %></a></li>
             <hr />
-            <li><a href="/profile#personnel"><%= t 'layout.footer.profile.personal' %></a></li>
-            <hr />
-            <li><a href="/CV_Remy_Hannequin.pdf"><%= t 'layout.footer.profile.cv.pdf' %></a> / <a href="/curriculum-vitae"><%= t 'layout.footer.profile.cv.html' %></a></li>
-            <!-- TODO: check URL -->
+            <li><a href="/about#personnel"><%= t 'layout.footer.profile.personal' %></a></li>
             <!-- TODO: english links -->
             <hr />
           </ul>
@@ -92,19 +90,32 @@
             <hr />
             <li><a href="http://ratp.fr"><%= t 'layout.footer.links.ratp' %></a></li>
             <hr />
-            <li><a href="/plan"><%= t 'layout.footer.links.sitemap' %></a></li>
+            <li><a href="/sitemap"><%= t 'layout.footer.links.sitemap' %></a></li>
             <hr />
             <li><a href="/accessibilite"><%= t 'layout.footer.links.accessibility' %></a></li>
             <hr />
             <li><a href="/contact"><%= t 'layout.footer.links.contact' %></a></li>
             <hr />
           </ul>
+        </div>
       </div>
-
     </div>
   </footer>
 
-  <!-- TODO: events analytics -->
+  <script data-params='<%= @require_js_params.to_json %>' data-script="<%= @require_js_script %>" data-main="/assets/main.js" src="/assets/require.js" id="require-js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41594062-1']);
+    _gaq.push(['_setDomainName', 'rhannequin.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 
 </body>
 </html>

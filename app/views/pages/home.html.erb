@@ -126,7 +126,30 @@
     <p><a href="/profile"><%= t '.development.more' %></a></p><!-- TODO: check URL %-->
     <div class="span works" id="work">
       <h1><%= t '.works.title' %></h1>
-      <!-- TODO: portfolio -->
+      <div class="galery"></div>
     </div>
   </div>
+
+  <script id="project-template" type="text/x-template">
+    <div class="work" id="work_info_{{ id }}">
+      <h2>{{ title }}</h2>
+      <ul class="tags">
+        {{#each tags}}
+          <li class="tag">
+            <span class="label label-inverse">{{label}}</span>
+          </li>
+        {{/each}}
+      </ul>
+      <p class="description">
+        {{{ description }}}
+      </p>
+      <p class="more">
+        <a href="<%= portfolio_path %>/{{ slug }}">En savoir +</a>
+      </p>
+    </div>
+  </script>
+
+  <script id="upload-template" type="text/x-template">
+    <img class="galery-item" id="galery_item_{{ index }}" src="{{ link }}" alt="" />
+  </script>
 </div>

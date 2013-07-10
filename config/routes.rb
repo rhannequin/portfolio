@@ -6,6 +6,9 @@ Portfolio::Application.routes.draw do
   match 'portfolio',        :to => 'portfolio#index',  :as => :portfolio
   match 'portfolio/:slug',  :to => 'portfolio#show',   :as => :show_portfolio
 
+  match 'contact' => 'pages#contact', :as => 'contact', :via => :get
+  match 'contact' => 'pages#send_contact', :as => 'contact', :via => :post
+
   resources :projects
 
   match     :admin,                :to => 'admin#index'

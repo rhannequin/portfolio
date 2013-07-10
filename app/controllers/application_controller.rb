@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  def require_js_init
+    @require_js_script = ''
+    @require_js_params = {}
+  end
+
+  def set_require_js(script, params = {})
+    @require_js_script = script
+    @require_js_params.merge! params
+  end
+
   private
     def prepend
       @title = 'lol'

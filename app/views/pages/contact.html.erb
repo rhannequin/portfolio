@@ -1,0 +1,73 @@
+<h1>Contact</h1>
+
+<% if @message.errors.any? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Le formulaire est erroné.</strong> Veuillez corriger vos erreurs pour envoyer le formulaire.
+    <ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Pour me contacter, il vous suffit le remplir le formulaire ci-dessous.
+  </div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-block alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Votre message a bien été envoyé par e-mail.</h4>
+    Je ferai mon possible pour vous apporter une réponse dans les plus brefs délais<br />
+    Les informations que vous avez envoyées sont toujours disponibles dans le formulaire.<br />
+    <%= link_to "Retourner à l'accueil", root_url %>
+  </div>
+<% end %>
+
+<%= form_for @message, :url => contact_path, :html => { :class => 'form-horizontal' } do |form| %>
+
+  <div class="control-group">
+    <%= form.label :firstname, 'Prénom', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_field :firstname, :placeholder => 'John', :required => true, :class => 'span4' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label :lastname, 'Nom', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_field :lastname, :placeholder => 'Doe', :required => true, :class => 'span4' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label :email, 'E-mail', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_field :email, :placeholder => 'john.doe@embauchez-moi.fr', :required => true, :class => 'span4' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label :additional, 'Complément', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_field :additional, :placeholder => 'Organisation représentée', :class => 'span4' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label :body, 'Message', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_area :body, :placeholder => 'Salut,', :required => true, :class => 'span4', :rows => 5 %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= form.submit 'Envoyer', :class => 'btn btn-primary' %>
+    </div>
+  </div>
+
+<% end %>

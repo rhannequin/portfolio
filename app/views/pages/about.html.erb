@@ -2,27 +2,13 @@
 
 <h1>Profil</h1>
 <div class="row-fluid head">
-  <div class="span6 nav">
+  <div class="nav">
     <ul>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#experiences">Expériences</a></li>
       <li><a href="#formation">Formation</a></li>
       <li><a href="#personnel">Personnel</a></li>
     </ul>
-  </div>
-  <div class="span6 cv">
-    <p>
-      Mon CV aux formats :
-      <a href="CV_Remy_Hannequin.pdf"><abbr title="Portable Document Format">PDF</abbr></a> /
-      <a href="curriculum-vitae"><abbr title="HyperText Markup Language">HTML</abbr></a>
-    </p>
-    <p>
-      Pour lire un fichier PDF :
-      <ul>
-        <li><a href="http://remyhannequin.free.fr/telechargements/adobe-pdf-reader.exe">Télécharger Adobe PDF Reader</a></li>
-        <li><a href="http://remyhannequin.free.fr/telechargements/foxit-pdf-reader.exe">Télécharger Foxit PDF Reader</a></li>
-      </ul>
-    </p>
   </div>
 </div>
 
@@ -83,19 +69,19 @@
           <%= setMark(4, 5) %>
         </div>
       </li>
-    </ul>
-  </div>
-  <div class="span6">
-    <h5>J'ai des connaissances</h5>
-    <ul>
       <li class="row">
         <div class="span6 language">
-          <strong>Ruby</strong>
+          <strong>Ruby 1.9/2</strong>
         </div>
         <div class="span6">
           <%= setMark(3, 5) %>
         </div>
       </li>
+    </ul>
+  </div>
+  <div class="span6">
+    <h5>J'ai des connaissances</h5>
+    <ul>
       <li class="row">
         <div class="span6 language">
           Grunt
@@ -106,7 +92,15 @@
       </li>
       <li class="row">
         <div class="span6 language">
-          Java
+          MongoDB
+        </div>
+        <div class="span6">
+          <%= setMark(3, 5) %>
+        </div>
+      </li>
+      <li class="row">
+        <div class="span6 language">
+          Java 7
         </div>
         <div class="span6">
           <%= setMark(2, 5) %>
@@ -149,12 +143,14 @@
     <ul>
       <li><strong>Ruby On Rails 3</strong></li>
       <li><strong>NodeJS / Express</strong></li>
+      <li><strong>Sinatra 1.4</strong></li>
       <li><strong>Symfony</strong> 1.0 avec l'<abbr title="Object-Relational Mapping">ORM</abbr> Propel</li>
       <li><strong>Symfony</strong> 2.1 avec l'<abbr title="Object-Relational Mapping">ORM</abbr> Doctrine</li>
-      <li>jQuery</li>
+      <li><strong>jQuery</strong></li>
       <li><strong>BackboneJS</strong></li>
       <li><strong>UnderscoreJS</strong> / <strong>Lodash</strong></li>
       <li><strong>Handlebars</strong></li>
+      <li>Socket.io</li>
     </ul>
   </div>
 </div>
@@ -182,17 +178,26 @@
 
 <div class="row-fluid skills competences">
   <div class="span6">
+    <h4>Mes services en ligne :</h4>
+    <ul>
+      <li>Github : gestion des pull-requests, forks et issues (<a href="https://github.com/rhannequin">@rhannequin</a>)</li>
+      <li>Bitbucket</li>
+      <li>Huboard</li>
+      <li>Heroku</li>
+      <li>Twitter pour la veille et le partage (<a href="https://twitter.com/rhannequin">@rhannequin</a>)</li>
+      <li>IRC (@rhannequin)</li>
+      <li>Trello</li>
+    </ul>
+  </div>
+  <div class="span6 wp">
     <h4>Mes logiciels préférés pour travailler :</h4>
     <ul>
       <li>Sublime Text 2</li>
+      <li>Firefox</li>
       <li>Eclipse</li>
       <li>Apache HTTP Server</li>
       <li>SmartGit</li>
     </ul>
-  </div>
-  <div class="span6 wp">
-    <h4>Système de gestion de contenu (<abbr title="Content Management System">CMS</abbr>)</h4>
-    <p><strong>Wordpress</strong></p>
   </div>
 </div>
 
@@ -206,6 +211,7 @@
   <p>
    Connaissances en <strong>ergonomie</strong>, accessibilité Web, <strong>référencement naturel</strong>, <strong>URL Rewriting</strong> et protection des données en ligne.
   </p>
+  <p>Je sais gérer un blog sous <strong>Wordpress</strong> et créer un thème.</p>
 </div>
 
 <div class="row-fluid">

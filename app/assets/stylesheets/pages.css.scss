@@ -1,4 +1,4 @@
-.profile {
+.about {
 
   .main {
     a:link {
@@ -20,7 +20,7 @@
     }
     h2 {
       font-size: 23px;
-      margin: 40px 0 20px;
+      margin: 15px 0 20px;
     }
     h3 {
       font-size: 18px;
@@ -35,24 +35,20 @@
     .competences h4, .competences h5 {
       text-align: center;
     }
-    .cv ul, .nav ul, .skills ul {
-      margin: 0;
-    }
-    .cv li, .nav li, .skills li {
-      list-style-type: none;
+    .nav {
+      margin-bottom: 0;
+
+      ul {
+        text-align: center;
+      }
+      li {
+        display: inline;
+      }
     }
   }
 
   .skills li {
     text-align: center;
-  }
-
-  .cv {
-    text-align: right;
-
-    p {
-      margin: 0;
-    }
   }
 
   .languages li {
@@ -118,7 +114,6 @@
     .languages .span6, .head .span6 { width: 100%; float: none; }
     .languages .language { text-align: left; }
     .languages .row { margin-bottom: 10px; }
-    .cv { text-align: left; }
 
   }
 
@@ -186,7 +181,7 @@
 
   .dev { margin-left: 2.12766%; }
   .dev > .span6 { margin-left: 0; }
- .main .span5 .span6 ul ul { margin-left: 10px; } /* to override margin: 0 */
+  .main .span5 .span6 ul ul { margin-left: 10px; } /* to override margin: 0 */
   .span5 > p { text-align: right; }
 
 
@@ -195,6 +190,9 @@
   .works {
     text-align: center;
 
+    .galery-item { display: none; }
+    .work { display: none; }
+    .tag { display: inline-block; }
     .choice {
       cursor: pointer;
     }
@@ -249,6 +247,23 @@
   .exp_date {
     color: #555555;
     font-size: 12px;
+  }
+
+}
+
+.contact {
+
+  .main h1 {
+    color: #38a8be;
+    font-weight: normal;
+    text-align: center;
+    margin: 20px 0 40px 0;
+  }
+
+
+  .main label {
+    color: #38A8BE;
+    font-weight: bold;
   }
 
 }

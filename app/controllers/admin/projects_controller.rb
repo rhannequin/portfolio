@@ -38,9 +38,9 @@ class Admin::ProjectsController < AdminController
   def destroy
     @project = Project.find(params[:id])
     if @project.destroy
-      redirect_to admin_projects_path,  flash: {success: _('Project was successfully destroyed')}
+      redirect_to admin_projects_path,  flash: {success: 'Project was successfully destroyed'}
     else
-      redirect_to action: :index, flash: {error: _('Cannot destroy this project')}
+      redirect_to action: :index, flash: {error: 'Cannot destroy this project'}
     end
   end
 

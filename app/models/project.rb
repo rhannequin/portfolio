@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  attr_accessor :upload_link
   attr_accessible :content, :description, :position, :priority, :published, :slug, :tag_ids, :title, :uploads_attributes
 
   has_and_belongs_to_many :tags
@@ -24,5 +25,13 @@ class Project < ActiveRecord::Base
       end
     end
     return related[0..1]
+  end
+
+  def upload_link
+    if self.uploads.any?
+      self.uploads.first.upload.url(:thumb)
+    else
+      nil
+    end
   end
 end
