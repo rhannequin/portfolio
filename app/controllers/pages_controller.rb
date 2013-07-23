@@ -14,7 +14,7 @@ class PagesController < ApplicationController
       config.connection_options = Twitter::Default::CONNECTION_OPTIONS.merge(
         :request => {
           :open_timeout => 5,
-          :timeout => 20
+          :timeout => 60
         }
       )
     end
