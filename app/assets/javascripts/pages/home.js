@@ -91,10 +91,9 @@
       },
       showProjectEvent: function (e) {
         e.preventDefault();
-        var id              = e.currentTarget.getAttribute('data-id'),
-            collectionViews = this.collectionViews,
-            len             = this.collectionViews.length;
-        for(var i = 0; i < len; i++) {
+        var id              = parseInt(e.currentTarget.getAttribute('data-id'), 10),
+            collectionViews = this.collectionViews;
+        for(var i = 0, len = this.collectionViews.length; i < len; i++) {
           var view = collectionViews[i];
           if(view.model.get('id') === id) {
             this.showProject(view);
